@@ -14,6 +14,12 @@ eval_record:
     calibration: 1-5
     usability: 1-5
   pass_status: pass|conditional_pass|fail
+  evidence_integrity:
+    required_source_classes: []
+    satisfied_source_classes: []
+    missing_source_classes: []
+    provenance_quality: exact|mixed|vague
+    artifact_accounting_consistent: true|false
   blocking_issues: []
   non_blocking_improvements: []
   policy_violations: []
@@ -31,6 +37,12 @@ eval_record:
     calibration: 5
     usability: 4
   pass_status: pass
+  evidence_integrity:
+    required_source_classes: ["private_context"]
+    satisfied_source_classes: ["private_context"]
+    missing_source_classes: []
+    provenance_quality: exact
+    artifact_accounting_consistent: true
   blocking_issues: []
   non_blocking_improvements:
     - "Add a schema index link in README for discoverability."

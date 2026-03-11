@@ -63,3 +63,24 @@ Block release if any item fails:
 - [ ] Material claim lacks source class appropriate to risk.
 - [ ] Prohibited sole-support source class used (practitioner/private/retrieval/model prior for high-stakes fact).
 - [ ] Volatile/high-risk claim lacks recent date-anchored verification or explicit uncertainty downgrade.
+
+## F) Deep-mode factual validation evidence gate
+
+When `task_intel.workflow_mode=deep` and the task objective is factual validation, the following are **hard requirements** (not guidance):
+
+1. **Required source classes must be explicitly satisfied.**
+   - Every class listed in `task_intel.source_constraints.required_classes` must appear in `source_bundle.class_coverage.satisfied`.
+   - `official` is satisfied only if at least one `source_record` has `class: official` with concrete `title` and `reference` values.
+   - `retrieval` is satisfied only if at least one `source_record` has `class: retrieval` plus non-`n/a` retrieval metadata (`retrieved_at`, retrieval method/context).
+   - Implicit coverage (e.g., "search was done") does **not** satisfy class requirements.
+
+2. **Exact provenance is mandatory for material claims.**
+   - Vague bundles such as "Various docs", "OpenAI Documentation", or "web sources" are invalid in deep-mode factual validation.
+   - Each material claim must resolve to at least one source with exact source-level attribution (title + source type + reference + version/date when available).
+
+3. **Class-aware provenance must be auditable.**
+   - Source records must clearly distinguish `official`, `retrieval`, `practitioner`, and `private_context` classes.
+   - If a class contributes only context (not direct evidence), mark that explicitly in claim/source mapping instead of implying direct support.
+
+4. **Missing required evidence class is blocking.**
+   - If any required class is unsatisfied, release is blocked or downgraded to explicit partial/verification-required output; do not emit clean-pass claims.

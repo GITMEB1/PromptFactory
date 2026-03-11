@@ -25,14 +25,17 @@
 3. Consult rule: `rules/evaluation_gates.md`.
 4. Execute step: score correctness, completeness, calibration, and usability; classify pass/warn/fail severity.
 5. Consult rule: `rules/claim_safety.md`, `rules/source_discipline.md`, `rules/conflict_and_uncertainty.md`, `rules/proportionality.md`.
-6. Execute step: log blocking vs non-blocking issues with draft locations and fix actions.
-7. Execute step: recommend pass, conditional pass (with fixes), or fail.
-8. Execute step: forward unresolved risk concentrations to `critic` for adversarial stress testing.
+6. Execute step: run deep-mode evidence integrity checks for required source classes, provenance precision, and artifact accounting consistency when task mode is deep factual validation.
+7. Execute step: log blocking vs non-blocking issues with draft locations and fix actions.
+8. Execute step: apply pass-status ceiling from `rules/evaluation_gates.md` so unresolved evidence gaps cannot receive `pass`.
+9. Execute step: recommend pass, conditional pass (with fixes), or fail.
+10. Execute step: forward unresolved risk concentrations to `critic` for adversarial stress testing.
 
 ## Outputs
 - `evaluation_report`:
   - rubric_scores
   - pass_status
+  - evidence_integrity
   - blocking_issues
   - non_blocking_improvements
 - `fix_list` prioritized by impact.

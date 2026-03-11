@@ -8,9 +8,10 @@
 ## 2) Routing
 - **Mode selected:** Deep mode.
 - **Source classes chosen:**
-  - **Official:** Vendor deprecation notice and release notes (normative dates and support commitments).
-  - **Practitioner:** Two engineering postmortems from teams that migrated recently (migration pitfalls).
-  - **Private context:** Internal service inventory and dependency map (blast radius).
+  - **Official:** "Vendor API Lifecycle Policy — v1 Sunset Bulletin" (`official`, reference: `https://vendor.example.com/bulletins/v1-sunset`, updated 2026-04-22).
+  - **Retrieval:** "Vendor Status Changelog — API v2 Migration Notes" (`retrieval`, reference: `https://vendor.example.com/changelog/api-v2-migration`, retrieved 2026-04-24T10:12:00Z via web search).
+  - **Practitioner:** "Auth Middleware Migration Postmortem (Team A)" (`practitioner`, reference: `https://engineering.example.net/postmortems/auth-mw-v2`).
+  - **Private context:** "Gateway Dependency Inventory Q2" (`private_context`, reference: `internal/wiki/gateway-deps-q2`).
   - **Model prior:** Used only for drafting migration sequencing language, never as sole evidence.
 - **Freshness handling:**
   - Official sources required within 30 days for timelines.
@@ -37,5 +38,6 @@
 - **Source quality mix:** 5/5
 - **Freshness handling:** 5/5
 - **Uncertainty calibration:** 4/5
+- **Evidence integrity:** pass (required classes `official` + `retrieval` explicitly satisfied; provenance quality `exact`; artifact accounting consistent as consolidated report)
 - **Overall:** Ship
 - **Lesson captured:** Keep practitioner estimates separate from official commitments.

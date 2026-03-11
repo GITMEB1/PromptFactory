@@ -23,3 +23,11 @@ Execution interface for deep runs. This module defines *how* to execute in deep 
 - `deep_execution_record` spanning all module artifacts.
 - `high_assurance_claim_inventory` with full traceability.
 - `review_ready_response` plus unresolved-risk disclosures.
+
+
+## Evidence integrity requirements for deep factual validation
+For deep-mode factual validation runs:
+- Treat required source classes as hard gates, not recommendations.
+- Require exact source-level provenance for material claims (title + class/type + reference).
+- Reject vague provenance bundles.
+- Prevent clean completion if evidence-class satisfaction or artifact accounting is incomplete.

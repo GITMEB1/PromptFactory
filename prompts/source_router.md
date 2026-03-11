@@ -31,8 +31,10 @@
   - class_precedence
   - exclusion_rules
   - recency_requirements
+  - required_class_checks (explicit criteria for each required class)
 - `retrieval_queue` by source class.
 - `conflict_watchlist` for likely disputed claim areas.
+- `class_satisfaction_plan` mapping each required class to expected concrete sources/records.
 
 ## Failure patterns
 - **Symptom:** Over-reliance on one weak source class.
