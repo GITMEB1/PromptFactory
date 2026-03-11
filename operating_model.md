@@ -90,3 +90,12 @@ Escalate from lightweight to deep mode, or from deep mode to human review, when 
 ## Canonical execution chain
 
 **Task Intake → Freshness Check → Source Routing → Retrieval / Reading → Credibility Grading → Claim Inventory → Response Plan → Composition → Lint / Eval → Lessons**
+
+## Workflow artifact schemas
+
+- Intake: `schemas/task_intel.md`
+- Sourcing: `schemas/source_record.md`, `schemas/source_bundle.md`
+- Synthesis: `schemas/claim_inventory.md`, `schemas/response_plan.md`
+- Verification: `schemas/eval_record.md`, `schemas/approval_manifest.md`, `schemas/source_conflict_record.md`
+- Revision control: `schemas/delta_record.md`
+- Post-run learning: `schemas/lesson_record.md`

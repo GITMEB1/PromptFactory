@@ -84,3 +84,6 @@ Optional:
 - Compliance/privacy:
 - Related artifacts:
 ```
+
+## Related schema
+- Use `schemas/task_intel.md` to capture intake output in a machine-readable artifact.

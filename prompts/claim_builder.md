@@ -48,3 +48,6 @@
 - **Symptom:** Confidence overstatement.
   - Cause: Provisional claims treated as definitive.
   - Fix: Apply `uncertainty_writer` controls.
+
+## Schema references
+- `schemas/claim_inventory.md` — canonical claim and exclusion structure for downstream composition.

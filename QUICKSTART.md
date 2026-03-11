@@ -28,3 +28,12 @@ Record task outcomes and conflicts in `tracking/` files.
 ## 6) Improve continuously
 
 Review examples in `examples/` and feed lessons into prompts/rules under `CHANGE_POLICY.md`.
+
+## 7) Use schema artifacts for consistency
+
+Use templates in `schemas/` to make handoffs explicit:
+- intake: `task_intel`
+- sourcing: `source_record`, `source_bundle`
+- synthesis/planning: `claim_inventory`, `response_plan`
+- verification/approval: `eval_record`, `approval_manifest`, `source_conflict_record`
+- iteration/learning: `delta_record`, `lesson_record`
