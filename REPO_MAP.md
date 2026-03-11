@@ -11,6 +11,9 @@
 - `GLOSSARY.md` — common vocabulary
 - `CONTRIBUTING.md` — contribution expectations and process
 - `CHANGE_POLICY.md` — change controls and review thresholds
+- `.agent/memory.md` — durable agent memory and long-lived context
+- `.agent/changelog.md` — agent-authored change history and validation notes
+- `.agent/execution_state.md` — active run state for handoffs and resumability
 
 ## Directories
 
@@ -29,3 +32,13 @@
   - Run/task/review/evaluation/conflict records
 - `examples/`
   - Positive, negative, and edge-case examples for calibration
+- `.agent/`
+  - Agent operational docs and workflow playbooks
+  - `workflows/`
+    - `default_workflow.md`
+    - `research_workflow.md`
+    - `writing_workflow.md`
+    - `analysis_workflow.md`
+    - `review_workflow.md`
+    - `source_conflict_workflow.md`
+    - `eval_iteration_workflow.md`

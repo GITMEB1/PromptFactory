@@ -81,6 +81,10 @@ See [`CHANGE_POLICY.md`](./CHANGE_POLICY.md) and [`DESIGN_PRINCIPLES.md`](./DESI
 ## Additional repository docs
 
 - [`REPO_MAP.md`](./REPO_MAP.md)
+- [`.agent/memory.md`](./.agent/memory.md)
+- [`.agent/changelog.md`](./.agent/changelog.md)
+- [`.agent/execution_state.md`](./.agent/execution_state.md)
+- [`.agent/workflows/default_workflow.md`](./.agent/workflows/default_workflow.md)
 - [`DESIGN_PRINCIPLES.md`](./DESIGN_PRINCIPLES.md)
 - [`GLOSSARY.md`](./GLOSSARY.md)
 - [`CONTRIBUTING.md`](./CONTRIBUTING.md)
