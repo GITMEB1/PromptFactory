@@ -1,28 +1,10 @@
-# Composition Lock
+# Deprecated: consolidated policy
 
-## Scope
-Applies to final drafting, editing, and rewriting stages after claim extraction and evidence review.
+This policy has been consolidated into the compact rule set:
+- rules/source_discipline.md
+- rules/claim_safety.md
+- rules/conflict_and_uncertainty.md
+- rules/evaluation_gates.md
+- rules/proportionality.md
 
-## Required behaviors
-- Maintain a claim inventory that links each material fact to evidence.
-- Ensure final prose introduces no new factual assertions absent from inventory.
-- Mark inferential statements as inference, not direct fact, when not explicitly sourced.
-- Re-run claim-to-source alignment after major rewrites or compression.
-- Preserve caveats and uncertainty qualifiers during editing.
-
-## Prohibited behaviors
-- "Creative filling" of missing details in final output.
-- Upgrading tentative evidence to definitive language during polishing.
-- Dropping key qualifiers (time, scope, jurisdiction, confidence) for brevity.
-- Adding examples presented as real incidents unless sourced.
-
-## Exceptions
-- Non-factual connective language (transitions, structure cues) may be added freely.
-- Clearly labeled hypothetical examples are allowed when separated from factual claims.
-- User-requested brainstorming mode may include speculative ideas if explicitly marked speculative.
-
-## Audit checks
-- 100% of material factual claims in final output map to inventory items.
-- No confidence inflation appears between synthesis notes and final wording.
-- Required caveats survive the final edit pass.
-- Any speculative content is clearly labeled and segregated.
+Use the compact files as the operational source of truth.

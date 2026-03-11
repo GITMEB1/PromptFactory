@@ -113,15 +113,15 @@ This table maps each canonical concept to operational artifacts in required dire
 
 | Concept | `rules/` | `prompts/` | `sources/` | `tracking/` | `.agent/workflows/` |
 |---|---|---|---|---|---|
-| Prompt engineering | `rules/composition_lock.md`; `rules/revision_policy.md` | `prompts/module_interface_standard.md`; `prompts/composer.md` | `sources/source_bundle_template.md` | `tracking/review_log.md` | `.agent/workflows/writing_workflow.md` |
-| Context engineering | `rules/provenance_policy.md`; `rules/note_hygiene_policy.md` | `prompts/task_intake.md`; `prompts/claim_builder.md` | `sources/provenance_model.md`; `sources/private_context/source_index.md` | `tracking/tasks.yaml.md`; `tracking/runs.yaml.md` | `.agent/workflows/default_workflow.md` |
-| Source routing | `rules/source_routing.md`; `rules/practitioner_source_policy.md` | `prompts/source_router.md`; `prompts/freshness_checker.md` | `sources/source_selection_matrix.md`; `sources/official/source_index.md` | `tracking/source_conflicts.yaml.md` | `.agent/workflows/research_workflow.md` |
-| Retrieval | `rules/freshness_policy.md`; `rules/credibility_policy.md` | `prompts/retrieval_reader.md`; `prompts/source_conflict_resolver.md` | `sources/retrieval/source_index.md`; `sources/freshness_risk_matrix.md` | `tracking/runs.yaml.md` | `.agent/workflows/research_workflow.md` |
-| Grounding | `rules/provenance_policy.md`; `rules/uncertainty_policy.md` | `prompts/claim_builder.md`; `prompts/uncertainty_writer.md` | `sources/provenance_model.md`; `sources/model_prior/usage_policy.md` | `tracking/eval_log.yaml.md` | `.agent/workflows/review_workflow.md` |
-| Claim control | `rules/composition_lock.md`; `rules/revision_policy.md` | `prompts/claim_builder.md`; `prompts/response_assembler.md` | `sources/source_bundle_template.md` | `tracking/failure_patterns.md`; `tracking/review_log.md` | `.agent/workflows/analysis_workflow.md` |
-| Composition | `rules/composition_lock.md`; `rules/proportionality_policy.md` | `prompts/composer.md`; `prompts/final_answer_formatter.md` | `sources/source_bundle_template.md` | `tracking/exemplar_index.md` | `.agent/workflows/writing_workflow.md` |
-| Evaluation | `rules/eval_policy.md`; `rules/policy_lint.yaml.md` | `prompts/evaluator.md`; `prompts/critic.md` | `sources/practitioner_credibility_criteria.md` | `tracking/eval_log.yaml.md`; `tracking/review_log.md` | `.agent/workflows/eval_iteration_workflow.md` |
-| Lessons | `rules/revision_policy.md` | `prompts/critic.md` | `sources/source_selection_matrix.md` | `tracking/lesson_log.md`; `tracking/failure_patterns.md` | `.agent/workflows/eval_iteration_workflow.md` |
+| Prompt engineering | `rules/claim_safety.md` | `prompts/module_interface_standard.md`; `prompts/composer.md` | `sources/source_bundle_template.md` | `tracking/review_log.md` | `.agent/workflows/writing_workflow.md` |
+| Context engineering | `rules/claim_safety.md` | `prompts/task_intake.md`; `prompts/claim_builder.md` | `sources/provenance_model.md`; `sources/private_context/source_index.md` | `tracking/tasks.yaml.md`; `tracking/runs.yaml.md` | `.agent/workflows/default_workflow.md` |
+| Source routing | `rules/source_discipline.md` | `prompts/source_router.md`; `prompts/freshness_checker.md` | `sources/source_selection_matrix.md`; `sources/official/source_index.md` | `tracking/source_conflicts.yaml.md` | `.agent/workflows/research_workflow.md` |
+| Retrieval | `rules/source_discipline.md` | `prompts/retrieval_reader.md`; `prompts/source_conflict_resolver.md` | `sources/retrieval/source_index.md`; `sources/freshness_risk_matrix.md` | `tracking/runs.yaml.md` | `.agent/workflows/research_workflow.md` |
+| Grounding | `rules/claim_safety.md`; `rules/conflict_and_uncertainty.md` | `prompts/claim_builder.md`; `prompts/uncertainty_writer.md` | `sources/provenance_model.md`; `sources/model_prior/usage_policy.md` | `tracking/eval_log.yaml.md` | `.agent/workflows/review_workflow.md` |
+| Claim control | `rules/claim_safety.md` | `prompts/claim_builder.md`; `prompts/response_assembler.md` | `sources/source_bundle_template.md` | `tracking/failure_patterns.md`; `tracking/review_log.md` | `.agent/workflows/analysis_workflow.md` |
+| Composition | `rules/claim_safety.md`; `rules/proportionality.md` | `prompts/composer.md`; `prompts/final_answer_formatter.md` | `sources/source_bundle_template.md` | `tracking/exemplar_index.md` | `.agent/workflows/writing_workflow.md` |
+| Evaluation | `rules/evaluation_gates.md` | `prompts/evaluator.md`; `prompts/critic.md` | `sources/practitioner_credibility_criteria.md` | `tracking/eval_log.yaml.md`; `tracking/review_log.md` | `.agent/workflows/eval_iteration_workflow.md` |
+| Lessons | `rules/evaluation_gates.md` | `prompts/critic.md` | `sources/source_selection_matrix.md` | `tracking/lesson_log.md`; `tracking/failure_patterns.md` | `.agent/workflows/eval_iteration_workflow.md` |
 
 ## Workflow artifact schemas
 
