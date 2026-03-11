@@ -1,5 +1,12 @@
 # Evaluation Gates
 
+## Canonical metadata
+- **Decision area owned:** Final quality evaluation dimensions, lint checks, and release-block decisions.
+- **Consulted at which execution stage(s):** Final validation/sign-off and any remediation re-check cycle.
+- **Non-overrides (what this file does not decide):** Does not replace domain-specific evidence collection, claim authoring, or initial conflict analysis workflows.
+- **Neighbor interactions (which canonical rule docs it pairs with):** Pairs with `source_discipline.md`, `claim_safety.md`, `conflict_and_uncertainty.md`, and `proportionality.md` as enforcement surface for their requirements.
+- **Cross-file precedence note:** When this file declares a `fail` or release-block condition, that gate authority is binding over advisory guidance elsewhere; advisory guidance remains non-blocking unless elevated here.
+
 Compact eval dimensions, lint checks, and release-block logic.
 
 ## A) Required evaluation dimensions

@@ -1,5 +1,11 @@
 # Conflict and Uncertainty
 
+## Canonical metadata
+- **Decision area owned:** Conflict classification/adjudication and confidence calibration under uncertainty.
+- **Consulted at which execution stage(s):** Evidence synthesis, recommendation drafting, and final confidence setting.
+- **Non-overrides (what this file does not decide):** Does not define provenance minimum fields, source freshness thresholds, or hard release-block criteria.
+- **Neighbor interactions (which canonical rule docs it pairs with):** Pairs with `source_discipline.md` for evidence weighting, `proportionality.md` for caveat depth, and `evaluation_gates.md` for pass/warn/fail enforcement.
+
 Operational controls for conflict adjudication and confidence calibration.
 
 ## A) Conflict detection and classification

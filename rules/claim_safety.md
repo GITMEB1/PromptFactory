@@ -1,5 +1,11 @@
 # Claim Safety
 
+## Canonical metadata
+- **Decision area owned:** Provenance completeness, claim-to-source traceability, composition lock, and revision integrity.
+- **Consulted at which execution stage(s):** Draft construction, editing/revision, and pre-release claim audit.
+- **Non-overrides (what this file does not decide):** Does not choose source credibility tiers, resolve source conflicts, or set proportional workflow depth.
+- **Neighbor interactions (which canonical rule docs it pairs with):** Pairs with `source_discipline.md` for source-class adequacy and `evaluation_gates.md` for lint/release blocking.
+
 Operational controls for provenance, composition lock, revision integrity, and note hygiene minimums.
 
 ## A) Provenance minimums (per material claim)
