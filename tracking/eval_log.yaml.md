@@ -21,5 +21,5 @@ evaluations:
       non_blocking_improvements:
         - "Improve disclosure wording"
       policy_violations:
-        - "rules/freshness_policy.md"
+        - "rules/source_discipline.md"
 ```

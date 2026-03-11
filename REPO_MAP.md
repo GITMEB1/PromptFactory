@@ -16,7 +16,7 @@
 ## Directories
 
 - `prompts/` — prompt modules
-- `rules/` — policy modules
+- `rules/` — policy modules (canonical: `source_discipline.md`, `claim_safety.md`, `conflict_and_uncertainty.md`, `evaluation_gates.md`, `proportionality.md`; deprecations index: `DEPRECATIONS.md`)
 - `sources/` — source-model documents and templates
 - `schemas/` — schema templates and examples
 - `tracking/` — run and review logs

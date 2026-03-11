@@ -11,7 +11,12 @@
 | `USAGE_BY_INTERFACE.md` | Interface-specific usage notes with shared workflow core | Core maintainers |
 | `task.md` | Structured intake specification | Operators |
 | `prompts/*.md` | Execution-stage prompt modules | Prompt maintainers |
-| `rules/*.md` | Governance and policy constraints | Policy maintainers |
+| `rules/source_discipline.md` | Canonical source routing, credibility, and freshness controls | Policy maintainers |
+| `rules/claim_safety.md` | Canonical claim safety and provenance controls | Policy maintainers |
+| `rules/conflict_and_uncertainty.md` | Canonical conflict adjudication and uncertainty calibration | Policy maintainers |
+| `rules/evaluation_gates.md` | Canonical evaluation and release-gate criteria | Policy maintainers |
+| `rules/proportionality.md` | Canonical proportionality and rigor-sizing policy | Policy maintainers |
+| `rules/DEPRECATIONS.md` | Legacy-to-canonical policy mapping index | Policy maintainers |
 | `sources/*.md` | Source-model references and templates | Research maintainers |
 | `schemas/*.md` | Canonical workflow artifact schemas | Schema maintainers |
 | `tracking/*.md` | Task/run/eval/conflict/lesson logs | Operators |
