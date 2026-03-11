@@ -1,5 +1,11 @@
 # Proportionality
 
+## Canonical metadata
+- **Decision area owned:** Rigor and process-depth scaling relative to task stakes and user constraints.
+- **Consulted at which execution stage(s):** Planning/scoping before analysis and final response shaping before release.
+- **Non-overrides (what this file does not decide):** Does not redefine source quality bars, claim provenance fields, or confidence calibration semantics.
+- **Neighbor interactions (which canonical rule docs it pairs with):** Pairs with `source_discipline.md` for minimum evidence rigor, `conflict_and_uncertainty.md` for uncertainty verbosity, and `evaluation_gates.md` for mismatch warnings.
+
 Right-size rigor, length, and caveats to stakes and user constraints.
 
 ## Decision table

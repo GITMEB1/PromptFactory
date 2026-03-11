@@ -1,5 +1,11 @@
 # Source Discipline
 
+## Canonical metadata
+- **Decision area owned:** Source selection, credibility weighting, source-class boundaries, and freshness escalation for factual claims.
+- **Consulted at which execution stage(s):** Evidence gathering, source validation, and pre-release verification.
+- **Non-overrides (what this file does not decide):** Does not set confidence language policy, conflict adjudication outcomes, or workflow depth requirements.
+- **Neighbor interactions (which canonical rule docs it pairs with):** Pairs with `claim_safety.md` for provenance completeness, `conflict_and_uncertainty.md` for disagreement handling, and `evaluation_gates.md` for release enforcement.
+
 Operational controls for source routing, credibility, practitioner handling, source-class boundaries, and freshness escalation.
 
 ## A) Claim routing by risk and source class
