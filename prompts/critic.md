@@ -1,52 +1,51 @@
 # Prompt Module — Critic
 
 ## When invoked
-- After evaluator pass, before final answer handoff.
-- Triggered for adversarial review of assumptions, blind spots, and edge cases.
-- Requires draft, evaluation report, and contested claim markers.
+- After `evaluator` identifies residual risk or when task risk requires adversarial challenge.
+- Triggered to challenge conclusions with counterfactuals and edge-case stress tests.
+- Not used for baseline scoring, formatting checks, or policy lint already owned by `evaluator`.
 
 ## Inputs
 - **Required**
-  - `draft_response`.
-  - `evaluation_report` and fix status.
-  - `uncertainty_flags` and `conflict_resolutions` when present.
+  - `draft_response` or `final_answer` candidate.
+  - `evaluation_report` (to avoid duplicating evaluator checks).
+  - Decision-critical claims and assumptions.
 - **Optional**
-  - Alternative framing requests from user.
-  - Historical failure examples for similar tasks.
+  - `source_conflict_record` and `uncertainty_flags`.
+  - Historical failure patterns for similar tasks.
 
 ## Procedure
-1. Identify strongest counterarguments against key conclusions.
-2. Probe hidden assumptions and unstated boundary conditions.
-3. Stress-test recommendations under plausible edge scenarios.
-4. Check whether uncertainties are disclosed at decision points.
-5. Distinguish fixable weaknesses from fundamental evidence gaps.
-6. Return targeted revisions or escalation recommendation.
+1. Select key conclusions and state the strongest plausible counterposition for each.
+2. Run counterfactual probes ("what would make this conclusion wrong?").
+3. Stress-test recommendations against edge scenarios and boundary conditions.
+4. Identify harms or failure modes that appear only under stressed assumptions.
+5. Return targeted adversarial revisions or escalation recommendation.
 
 ## Outputs
 - `critique_report`:
-  - critical_risks
-  - assumption_gaps
-  - edge_case_findings
-  - revision_requests
-- `escalation_decision` (proceed, revise, or defer pending new evidence).
+  - counterfactual_challenges
+  - edge_risk_findings
+  - assumption_breakpoints
+  - adversarial_revision_requests
+- `escalation_decision` (proceed, revise, or defer pending evidence).
 
 ## Quality checks
-- Critique addresses substance, not only style.
-- At least one counterposition is tested for key conclusions.
-- Boundary conditions are explicit for recommendations.
-- Escalation decision is justified by evidence posture.
+- Report includes substantive counterpositions for decision-critical conclusions.
+- Findings are adversarial (counterfactual/edge-risk), not generic style or rubric feedback.
+- Boundary conditions are explicit for each major recommendation.
+- Escalation decision is evidence-aware and justified.
 
 ## Failure patterns
-- **Symptom:** Critic duplicates evaluator with no new insight.
-  - Cause: No adversarial lens applied.
-  - Fix: Require counterargument generation step.
-- **Symptom:** Edge-case harms missed.
-  - Cause: Stress tests not run.
-  - Fix: Add scenario probes aligned to task risk.
-- **Symptom:** Endless revision loops.
-  - Cause: No clear escalate/proceed threshold.
-  - Fix: Emit explicit escalation decision criteria.
+- **Symptom:** Critic repeats evaluator comments.
+  - Cause: Adversarial scope not enforced.
+  - Fix: Restrict output to counterfactual and edge-risk findings.
+- **Symptom:** No realistic breakpoints identified.
+  - Cause: Stress tests too abstract.
+  - Fix: Add concrete scenario probes tied to user context.
+- **Symptom:** Endless critique loops.
+  - Cause: No clear proceed/defer threshold.
+  - Fix: Require explicit escalation decision with trigger conditions.
 
 ## Schema references
-- `schemas/delta_record.md` — revision-delta tracking for regression-aware critique loops.
-- `schemas/lesson_record.md` — lessons capture after critique resolution.
+- `schemas/delta_record.md` — revision-delta tracking for critique loops.
+- `schemas/lesson_record.md` — lessons capture after adversarial findings are resolved.

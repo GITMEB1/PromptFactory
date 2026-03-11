@@ -2,8 +2,8 @@
 
 ## When invoked
 - First post-draft validation pass after composition.
-- Triggered for objective quality and policy conformance checks.
-- Requires draft text plus underlying claim/evidence artifacts.
+- Triggered for objective quality scoring and policy conformance checks.
+- Serves as the primary release gate scorer before any adversarial `critic` challenge.
 
 ## Inputs
 - **Required**
@@ -20,7 +20,7 @@
 3. Score draft on correctness, completeness, calibration, and usability.
 4. Flag policy violations and severity levels.
 5. Recommend pass, conditional pass (with fixes), or fail.
-6. Forward unresolved weaknesses to `critic` for adversarial stress test.
+6. Forward only unresolved risk concentrations to `critic` for adversarial stress testing.
 
 ## Outputs
 - `evaluation_report`:

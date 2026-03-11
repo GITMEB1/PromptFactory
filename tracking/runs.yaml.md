@@ -14,7 +14,7 @@ runs:
       - prompts/task_intake.md
       - prompts/source_router.md
       - prompts/claim_builder.md
-      - prompts/composer.md
+      - prompts/final_response_builder.md
       - prompts/evaluator.md
     source_classes_used:
       official:
