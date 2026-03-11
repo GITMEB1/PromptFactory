@@ -2,9 +2,18 @@
 
 Prompt Factory v2 is a documentation-first operating system for producing reliable, auditable LLM outputs.
 
-## Canonical concept definitions
+## Primary operator entrypoint
 
-All canonical concept definitions live in [`operating_model.md`](./operating_model.md):
+Start operational work in [`CANONICAL_EXECUTION_PATH.md`](./CANONICAL_EXECUTION_PATH.md). It is the authoritative execution spine for:
+
+- stage order
+- rule and prompt mapping
+- required schema artifacts
+- stop gates and escalation
+
+## Concept reference
+
+Use [`operating_model.md`](./operating_model.md) as the conceptual reference and policy anchor for:
 
 - [Prompt engineering](./operating_model.md#prompt-engineering)
 - [Context engineering](./operating_model.md#context-engineering)
@@ -16,12 +25,9 @@ All canonical concept definitions live in [`operating_model.md`](./operating_mod
 - [Evaluation](./operating_model.md#evaluation)
 - [Lessons](./operating_model.md#lessons)
 
-For the authoritative execution path, see [`CANONICAL_EXECUTION_PATH.md`](./CANONICAL_EXECUTION_PATH.md).
-
-`operating_model.md` remains the canonical source for concept definitions and policy anchors.
-
 ## Core docs
 
+- [`CANONICAL_EXECUTION_PATH.md`](./CANONICAL_EXECUTION_PATH.md)
 - [`operating_model.md`](./operating_model.md)
 - [`QUICKSTART.md`](./QUICKSTART.md)
 - [`REPO_MAP.md`](./REPO_MAP.md)

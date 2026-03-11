@@ -1,24 +1,38 @@
 # Quickstart
 
-## 1) Orientation
+## 1) Start at the canonical path
 
 Read in order:
 1. [`README.md`](./README.md)
-2. [`operating_model.md`](./operating_model.md)
-3. [`task.md`](./task.md)
+2. [`CANONICAL_EXECUTION_PATH.md`](./CANONICAL_EXECUTION_PATH.md)
+3. [`operating_model.md`](./operating_model.md) (concept/policy reference)
+4. [`task.md`](./task.md)
 
 ## 2) Set up your run
 
 1. Create a task ID (`T-YYYYMMDD-<slug>`).
 2. Classify risk (`low|medium|high`) and freshness (`stable|moderate|high`).
-3. Select mode using [`operating_model.md#minimum-evidence-requirements-by-task-risk`](./operating_model.md#minimum-evidence-requirements-by-task-risk) and [`operating_model.md#escalation-conditions`](./operating_model.md#escalation-conditions).
+3. Select mode using canonical criteria:
+   - [`operating_model.md#minimum-evidence-requirements-by-task-risk`](./operating_model.md#minimum-evidence-requirements-by-task-risk)
+   - [`operating_model.md#escalation-conditions`](./operating_model.md#escalation-conditions)
 4. Define success criteria before sourcing.
 
-## 3) Execute the canonical chain
+## 3) Execute directly via the canonical spine
 
-Use [`CANONICAL_EXECUTION_PATH.md`](./CANONICAL_EXECUTION_PATH.md) as the authoritative source for stage order, rules, prompt modules, artifacts, and gates.
+Follow [`CANONICAL_EXECUTION_PATH.md`](./CANONICAL_EXECUTION_PATH.md) step-by-step:
 
-Use prompt templates in `prompts/`, policy constraints in `rules/`, and schema templates in `schemas/`.
+1. Task Intake
+2. Freshness Check
+3. Source Routing
+4. Retrieval / Reading
+5. Credibility Grading
+6. Claim Control (Claim Inventory)
+7. Response Plan
+8. Composition
+9. Evaluation (Lint / Eval)
+10. Lessons
+
+Use only the rule files, prompt modules, and schema outputs mapped in that file.
 
 ## 4) Log outcomes
 
