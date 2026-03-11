@@ -49,3 +49,6 @@
 - **Symptom:** Hidden assumptions appear late in composition.
   - Cause: Intake assumptions not externalized.
   - Fix: Regenerate `intake_assumptions` before retrieval.
+
+## Schema references
+- `schemas/task_intel.md` — canonical structure for `task_profile`, assumptions, and missing-info output.

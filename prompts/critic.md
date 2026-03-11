@@ -46,3 +46,7 @@
 - **Symptom:** Endless revision loops.
   - Cause: No clear escalate/proceed threshold.
   - Fix: Emit explicit escalation decision criteria.
+
+## Schema references
+- `schemas/delta_record.md` — revision-delta tracking for regression-aware critique loops.
+- `schemas/lesson_record.md` — post-run learning capture after critique resolution.

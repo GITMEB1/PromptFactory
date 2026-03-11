@@ -38,6 +38,7 @@ For a file-level view, see [`REPO_MAP.md`](./REPO_MAP.md).
 - Intake specification: [`task.md`](./task.md)
 - Workflow and decision model: [`operating_model.md`](./operating_model.md)
 - Full manifest and canonical chain: [`MANIFEST.md`](./MANIFEST.md)
+- Canonical workflow schemas: [`schemas/`](./schemas)
 
 ## Workflow modes
 

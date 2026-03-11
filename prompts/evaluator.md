@@ -46,3 +46,7 @@
 - **Symptom:** Repeated regressions across revisions.
   - Cause: Prior evaluator output not compared.
   - Fix: Add regression checkpoint against previous report.
+
+## Schema references
+- `schemas/eval_record.md` — structured evaluation output and issue tracking.
+- `schemas/approval_manifest.md` — gate decision and sign-off structure when escalation or approval is needed.

@@ -47,3 +47,7 @@
 - **Symptom:** Conflicts discovered too late.
   - Cause: Conflict risk not flagged at routing time.
   - Fix: Create upfront `conflict_watchlist`.
+
+## Schema references
+- `schemas/source_record.md` — per-source metadata used during class routing and credibility checks.
+- `schemas/source_bundle.md` — run-level source package linking sources to claims.

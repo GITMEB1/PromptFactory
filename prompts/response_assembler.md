@@ -46,3 +46,6 @@
 - **Symptom:** Limitations hidden in footnotes.
   - Cause: Disclosure slots not planned.
   - Fix: Promote disclosures to decision-critical sections.
+
+## Schema references
+- `schemas/response_plan.md` — section/claim mapping model for output blueprint handoff.

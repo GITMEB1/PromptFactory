@@ -19,6 +19,7 @@
 | `sources/*/source_index.md` | Source-class inventories and guidance |
 | `tracking/*` | Run logs, evaluation logs, conflicts, and task tracking records |
 | `examples/*` | Good/bad/edge examples for operator calibration |
+| `schemas/*.md` | Canonical artifact schemas (templates + filled examples) for intake, sources, claims, planning, approval, evaluation, deltas, conflicts, and lessons |
 
 ## Canonical workflow chain
 

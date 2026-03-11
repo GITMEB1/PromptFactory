@@ -47,3 +47,6 @@
 - **Symptom:** False conflict due to scope mismatch.
   - Cause: Claims not normalized.
   - Fix: Add normalization step before adjudication.
+
+## Schema references
+- `schemas/source_conflict_record.md` — standard conflict adjudication artifact.

@@ -42,3 +42,5 @@
     - `review_workflow.md`
     - `source_conflict_workflow.md`
     - `eval_iteration_workflow.md`
+- `schemas/`
+  - Canonical YAML/Markdown schema templates and filled examples for workflow artifacts

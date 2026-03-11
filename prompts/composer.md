@@ -43,3 +43,7 @@
 - **Symptom:** Evidence lost during simplification.
   - Cause: Aggressive paraphrase dropped support qualifiers.
   - Fix: Reinsert qualifiers and source linkage.
+
+## Schema references
+- `schemas/response_plan.md` — composition input plan for section order, mapped claims, and disclosures.
+- `schemas/claim_inventory.md` — approved claim set and support statuses.
