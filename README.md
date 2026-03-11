@@ -16,7 +16,9 @@ All canonical concept definitions live in [`operating_model.md`](./operating_mod
 - [Evaluation](./operating_model.md#evaluation)
 - [Lessons](./operating_model.md#lessons)
 
-For the canonical execution chain, see [`operating_model.md#canonical-execution-chain`](./operating_model.md#canonical-execution-chain).
+For the authoritative execution path, see [`CANONICAL_EXECUTION_PATH.md`](./CANONICAL_EXECUTION_PATH.md).
+
+`operating_model.md` remains the canonical source for concept definitions and policy anchors.
 
 ## Core docs
 

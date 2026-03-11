@@ -16,7 +16,7 @@ Read in order:
 
 ## 3) Execute the canonical chain
 
-Use [`operating_model.md#canonical-execution-chain`](./operating_model.md#canonical-execution-chain) as the source of truth for stage order and naming.
+Use [`CANONICAL_EXECUTION_PATH.md`](./CANONICAL_EXECUTION_PATH.md) as the authoritative source for stage order, rules, prompt modules, artifacts, and gates.
 
 Use prompt templates in `prompts/`, policy constraints in `rules/`, and schema templates in `schemas/`.
 
