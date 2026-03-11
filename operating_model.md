@@ -2,11 +2,15 @@
 
 ## Purpose
 
-Prompt Factory v2 treats prompting as a **workflow and knowledge-governance problem**, not just a wording problem.
+Prompt Factory treats prompting as a **workflow and knowledge-governance problem**, not just a wording problem.
 
 ## Canonical concept definition source
 
-`operating_model.md` is the **sole canonical source** for concept definitions used across this repository. Other docs should reference these section anchors instead of restating definitions.
+`operating_model.md` is the canonical source for concept definitions used across this repository.
+
+## Canonical execution mapping source
+
+For stage-level execution mapping (rules, prompts, and artifacts), use [`CANONICAL_EXECUTION_PATH.md`](./CANONICAL_EXECUTION_PATH.md) as the single source of truth.
 
 ## Canonical concept definitions
 
@@ -73,62 +77,6 @@ Capturing reusable outcomes from runs to improve future routing, prompting, and 
 **In scope:** Lesson logs, failure patterns, exemplars, review notes.
 **Out of scope / non-goals:** One-off retrospective notes that are not linked to operational artifacts.
 
-## Lifecycle stages
-
-1. **Intake**
-   - Capture task requirements in `task.md`
-   - Classify risk, freshness, and deliverable type
-2. **Scoping**
-   - Select lightweight or deep mode
-   - Define acceptable uncertainty and response boundaries
-3. **Sourcing**
-   - Route required claims to source classes
-   - Gather evidence from official, practitioner, private context, retrieval, or bounded model prior
-4. **Synthesis**
-   - Build claim inventory and response plan
-   - Track confidence and unresolved gaps
-5. **Verification**
-   - Run lint/eval checks and contradiction checks
-   - Ensure minimum evidence requirements are met
-6. **Delivery**
-   - Produce final response with caveats and references
-7. **Lessons**
-   - Log outcomes, conflicts, and improvements in `tracking/*`
-
-## Decision gates
-
-### Gate A: Intake completeness
-Pass conditions:
-- required fields in `task.md` are complete
-- risk and freshness are classified
-
-Fail action:
-- return for clarification before sourcing
-
-### Gate B: Mode selection
-Pass conditions:
-- mode (lightweight/deep) matches risk and freshness
-- operator acknowledges trade-off between speed and assurance
-
-Fail action:
-- escalate mode to deep or pause task
-
-### Gate C: Evidence sufficiency
-Pass conditions:
-- every material claim has a source class and support
-- uncertainty is explicit where evidence is incomplete
-
-Fail action:
-- block delivery and continue sourcing
-
-### Gate D: Policy compliance
-Pass conditions:
-- output conforms to routing, freshness, and conflict policies
-- no prohibited shortcuts (e.g., silent source substitution)
-
-Fail action:
-- reroute through policy remediation before release
-
 ## Escalation conditions
 
 Escalate from lightweight to deep mode, or from deep mode to human review, when any of the following occur:
@@ -155,32 +103,3 @@ Escalate from lightweight to deep mode, or from deep mode to human review, when 
 - For workflow/process advice: **Practitioner sources** may outperform official docs.
 - For current uncertainty: do not rely on model prior alone.
 - If sources conflict: show the conflict instead of smoothing it over.
-
-## Canonical execution chain
-
-**Task Intake → Freshness Check → Source Routing → Retrieval / Reading → Credibility Grading → Claim Control (Claim Inventory) → Response Plan → Composition → Evaluation (Lint / Eval) → Lessons**
-
-## Concept traceability matrix
-
-This table maps each canonical concept to operational artifacts in required directories.
-
-| Concept | `rules/` | `prompts/` | `sources/` | `tracking/` | `.agent/workflows/` |
-|---|---|---|---|---|---|
-| Prompt engineering | `rules/claim_safety.md` | `prompts/final_response_builder.md` | `sources/source_bundle_template.md` | `tracking/review_log.md` | `.agent/workflows/default_workflow.md` (writing mode) |
-| Context engineering | `rules/claim_safety.md` | `prompts/task_intake.md`; `prompts/claim_builder.md` | `sources/provenance_model.md`; `sources/private_context/source_index.md` | `tracking/tasks.yaml.md`; `tracking/runs.yaml.md` | `.agent/workflows/default_workflow.md` |
-| Source routing | `rules/source_discipline.md` | `prompts/source_router.md`; `prompts/freshness_checker.md` | `sources/source_selection_matrix.md`; `sources/official/source_index.md` | `tracking/source_conflicts.yaml.md` | `.agent/workflows/research_workflow.md` |
-| Retrieval | `rules/source_discipline.md` | `prompts/retrieval_reader.md`; `prompts/source_conflict_resolver.md` | `sources/retrieval/source_index.md`; `sources/freshness_risk_matrix.md` | `tracking/runs.yaml.md` | `.agent/workflows/research_workflow.md` |
-| Grounding | `rules/claim_safety.md`; `rules/conflict_and_uncertainty.md` | `prompts/claim_builder.md`; `prompts/uncertainty_writer.md` | `sources/provenance_model.md`; `sources/model_prior/usage_policy.md` | `tracking/eval_log.yaml.md` | `.agent/workflows/default_workflow.md` (review mode) |
-| Claim control | `rules/claim_safety.md` | `prompts/claim_builder.md`; `prompts/final_response_builder.md` | `sources/source_bundle_template.md` | `tracking/failure_patterns.md`; `tracking/review_log.md` | `.agent/workflows/default_workflow.md` (analysis mode) |
-| Composition | `rules/claim_safety.md`; `rules/proportionality.md` | `prompts/final_response_builder.md` | `sources/source_bundle_template.md` | `README.md` (example links); `QUICKSTART.md` (example links) | `.agent/workflows/default_workflow.md` (writing mode) |
-| Evaluation | `rules/evaluation_gates.md` | `prompts/evaluator.md`; `prompts/critic.md` | `sources/practitioner_credibility_criteria.md` | `tracking/eval_log.yaml.md`; `tracking/review_log.md` | `.agent/workflows/eval_iteration_workflow.md` |
-| Lessons | `rules/evaluation_gates.md` | `prompts/critic.md` | `sources/source_selection_matrix.md` | `tracking/lesson_log.md`; `tracking/failure_patterns.md` | `.agent/workflows/eval_iteration_workflow.md` |
-
-## Workflow artifact schemas
-
-- Intake: `schemas/task_intel.md`
-- Sourcing: `schemas/source_record.md`, `schemas/source_bundle.md`
-- Synthesis: `schemas/claim_inventory.md`, `schemas/response_plan.md`
-- Verification: `schemas/eval_record.md`, `schemas/approval_manifest.md`, `schemas/source_conflict_record.md`
-- Revision control: `schemas/delta_record.md`
-- Lessons: `schemas/lesson_record.md`
