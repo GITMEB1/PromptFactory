@@ -1,39 +1,107 @@
 # Quickstart
 
-## 1) Read orientation docs
+## 1) Orientation
 
+Read in order:
 1. [`README.md`](./README.md)
 2. [`operating_model.md`](./operating_model.md)
 3. [`task.md`](./task.md)
 
-## 2) Create intake
+## 2) Set up your run
 
-Fill `task.md` using the intake template and required fields.
+1. Create a task ID (`T-YYYYMMDD-<slug>`).
+2. Classify risk (`low|medium|high`) and freshness (`stable|moderate|high`).
+3. Select mode:
+   - **Lightweight** for low-stakes + low-freshness tasks.
+   - **Deep** for high-stakes and/or high-freshness tasks.
+4. Define success criteria before sourcing.
 
-## 3) Pick execution mode
-
-- Use **Lightweight** for low-risk, low-freshness tasks.
-- Use **Deep** for medium/high risk or freshness-sensitive tasks.
-
-## 4) Run the canonical chain
+## 3) Execute the canonical chain
 
 **Task Intake → Freshness Check → Source Routing → Retrieval / Reading → Credibility Grading → Claim Inventory → Response Plan → Composition → Lint / Eval → Lessons**
 
-Use prompt templates in `prompts/` and policy files in `rules/`.
+Use prompt templates in `prompts/`, policy constraints in `rules/`, and schema templates in `schemas/`.
 
-## 5) Log outcomes
+## 4) Log outcomes
 
-Record task outcomes and conflicts in `tracking/` files.
+Record task/run/conflict outcomes in `tracking/`.
 
-## 6) Improve continuously
+## 5) First run examples
 
-Review examples in `examples/` and feed lessons into prompts/rules under `CHANGE_POLICY.md`.
+### Lightweight example (low-stakes, low-freshness)
 
-## 7) Use schema artifacts for consistency
+Use for internal drafts, low-impact summaries, and stable topics.
 
-Use templates in `schemas/` to make handoffs explicit:
-- intake: `task_intel`
-- sourcing: `source_record`, `source_bundle`
-- synthesis/planning: `claim_inventory`, `response_plan`
-- verification/approval: `eval_record`, `approval_manifest`, `source_conflict_record`
-- iteration/learning: `delta_record`, `lesson_record`
+#### Example intake (`schemas/task_intel.md`)
+
+```yaml
+task_intel:
+  task_id: "T-20260311-lightweight-demo"
+  title: "Summarize stable repository conventions"
+  user_request_verbatim: "Summarize the coding conventions in this repo."
+  objective: "Provide a concise, correct summary for internal onboarding."
+  audience: "Internal contributors"
+  deliverable_type: "answer"
+  risk_level: low
+  freshness_requirement: stable
+  workflow_mode: lightweight
+```
+
+#### Example source bundle (`schemas/source_bundle.md`)
+
+```yaml
+source_bundle:
+  bundle_id: "B-20260311-lightweight-demo"
+  task_id: "T-20260311-lightweight-demo"
+  source_ids: ["S-private-readme", "S-private-quickstart"]
+  class_coverage:
+    required: ["private_context"]
+    satisfied: ["private_context"]
+```
+
+#### Lightweight completion checklist
+
+- Build `claim_inventory` and `response_plan`.
+- Run evaluator/lint prompts.
+- Deliver with citations and explicit caveats.
+- Append task/run entries to `tracking/tasks.yaml.md` and `tracking/runs.yaml.md`.
+
+### Deep example (high-stakes, high-freshness)
+
+Use for externally visible decisions, compliance/safety/legal/financial outputs, or rapidly changing facts.
+
+#### Example intake (`schemas/task_intel.md`)
+
+```yaml
+task_intel:
+  task_id: "T-20260311-deep-demo"
+  title: "Assess current feature availability for external guidance"
+  user_request_verbatim: "Can we publish that Feature X is production-ready this week?"
+  objective: "Provide defensible publish/no-publish guidance based on current evidence."
+  audience: "Product + compliance reviewers"
+  deliverable_type: "analysis memo"
+  risk_level: high
+  freshness_requirement: high
+  workflow_mode: deep
+```
+
+#### Example conflict record (`schemas/source_conflict_record.md`)
+
+```yaml
+source_conflict_record:
+  conflict_id: "X-007"
+  task_id: "T-20260311-deep-demo"
+  claim_ids: ["C-004"]
+  severity: high
+  resolution_status: split_outcome
+  rationale: "Official source determines availability; practitioner source adds reliability caveat."
+  residual_uncertainty: "region-B performance variability"
+```
+
+#### Deep completion checklist
+
+- Create `source_record` entries and a complete `source_bundle`.
+- Map decision-critical claims to evidence in `claim_inventory`.
+- Record unresolved disagreements with `source_conflict_record`.
+- Require evaluation plus `approval_manifest` for high-risk release.
+- Append run/conflict entries to `tracking/runs.yaml.md` and `tracking/source_conflicts.yaml.md`.
