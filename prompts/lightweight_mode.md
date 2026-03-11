@@ -1,26 +1,31 @@
 # Prompt Module — Lightweight Mode
 
-## When invoked
-- Selected when task risk is low and turnaround speed is prioritized.
-- Triggered by intake mode recommendation or explicit user request.
-- Requires confirmation that lightweight constraints are policy-safe.
+## Trigger
+- Use when task risk is low and speed is prioritized.
+- Trigger from intake recommendation or explicit user request.
 
 ## Inputs
 - **Required**
   - `task_profile` with low-to-moderate risk assessment.
   - User urgency and verbosity constraints.
   - Minimum evidence requirements.
+  - Canonical policy files:
+    - `rules/proportionality.md`
+    - `rules/source_discipline.md`
+    - `rules/claim_safety.md`
 - **Optional**
   - Prior validated patterns for similar tasks.
   - User-approved assumptions to avoid over-retrieval.
 
 ## Procedure
-1. Limit scope to highest-impact user questions.
-2. Use minimal viable source set per routing policy.
-3. Build compact claim inventory with strict support threshold.
-4. Compose concise response with direct recommendations.
-5. Run abbreviated evaluator checks focused on critical errors.
-6. Escalate to `deep_mode` if conflicts, high uncertainty, or policy triggers appear.
+1. Consult rule: `rules/proportionality.md`.
+2. Execute step: constrain scope to highest-impact user questions.
+3. Consult rule: `rules/source_discipline.md`.
+4. Execute step: use minimal viable source classes for the stated risk.
+5. Consult rule: `rules/claim_safety.md`.
+6. Execute step: build a compact claim inventory and reject unsupported claims.
+7. Execute step: compose concise recommendations with necessary caveats.
+8. Execute step: escalate to `deep_mode` when conflicts, uncertainty, or gate triggers appear.
 
 ## Outputs
 - `lightweight_execution_plan`.
@@ -28,19 +33,13 @@
 - `concise_response_draft`.
 - `escalation_flags` (if mode switch needed).
 
-## Quality checks
-- Response addresses core user objective without unnecessary depth.
-- Critical claims remain evidence-backed.
-- Time-saving shortcuts do not violate policy gates.
-- Escalation criteria are explicitly evaluated.
-
 ## Failure patterns
 - **Symptom:** Fast answer is brittle or wrong.
-  - Cause: Over-pruned evidence path.
-  - Fix: Expand route or switch to deep mode.
-- **Symptom:** Concision removes necessary caveats.
-  - Cause: Uncertainty handling skipped.
-  - Fix: Add minimal caveat statements.
-- **Symptom:** Lightweight mode used on high-risk tasks.
-  - Cause: Intake gating failure.
-  - Fix: Require explicit risk recheck before execution.
+  - Consult rule: `rules/source_discipline.md`.
+  - Execute step: expand source classes or switch to `deep_mode`.
+- **Symptom:** Concision removes required caveats.
+  - Consult rule: `rules/conflict_and_uncertainty.md`.
+  - Execute step: add minimal uncertainty language before release.
+- **Symptom:** Lightweight mode used for high-stakes tasks.
+  - Consult rule: `rules/proportionality.md`.
+  - Execute step: reclassify task and hand off to `deep_mode`.
