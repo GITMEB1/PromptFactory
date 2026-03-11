@@ -1,26 +1,29 @@
 # Prompt Module — Source Router
 
-## When invoked
-- Immediately after `task_intake`, before any evidence extraction.
-- Triggered when source classes must be selected or revised.
-- Requires task profile and applicable source routing policies.
+## Trigger
+- Use immediately after `task_intake`, before evidence extraction.
+- Trigger when source classes must be selected or revised.
 
 ## Inputs
 - **Required**
   - `task_profile` from intake.
   - User-provided materials (if any).
-  - Source-class policy constraints (`official`, `practitioner`, `private_context`, `retrieval`, `model_prior`).
+  - Candidate source classes (`official`, `practitioner`, `private_context`, `retrieval`, `model_prior`).
+  - Canonical policy files:
+    - `rules/source_discipline.md`
+    - `rules/proportionality.md`
 - **Optional**
   - Previous route plan from prior run.
   - Known source availability constraints.
 
 ## Procedure
-1. Map task claims likely needed to source classes with precedence.
-2. Determine minimum required classes to satisfy reliability for task risk level.
-3. Define prohibited or de-prioritized classes for this task.
-4. Set recency requirements and trigger `freshness_checker` when needed.
-5. Emit retrieval plan by class, including why each class is included.
-6. If class-level disagreement risk is high, pre-register `source_conflict_resolver`.
+1. Consult rule: `rules/proportionality.md`.
+2. Execute step: set minimum source rigor from task stakes.
+3. Consult rule: `rules/source_discipline.md`.
+4. Execute step: map likely claim categories to source classes with precedence and exclusions.
+5. Execute step: define recency requirements and invoke `freshness_checker` when triggered.
+6. Consult rule: `rules/conflict_and_uncertainty.md`.
+7. Execute step: pre-register conflict watchlist for likely disputed claim areas.
 
 ## Outputs
 - `source_plan`:
@@ -31,22 +34,16 @@
 - `retrieval_queue` by source class.
 - `conflict_watchlist` for likely disputed claim areas.
 
-## Quality checks
-- Every selected class has a task-specific rationale.
-- At least one authoritative class exists for high-risk claims.
-- Model-prior-only paths are rejected unless explicitly allowed.
-- Recency requirements are explicit for freshness-sensitive tasks.
-
 ## Failure patterns
 - **Symptom:** Over-reliance on one weak source class.
-  - Cause: No class diversification in route planning.
-  - Fix: Rebuild with policy-conformant class mix.
+  - Consult rule: `rules/source_discipline.md`.
+  - Execute step: rebuild route with required class diversification.
 - **Symptom:** Retrieval gathers irrelevant evidence.
-  - Cause: Claim-to-class mapping was underspecified.
-  - Fix: Add claim categories and reroute.
+  - Consult rule: `rules/proportionality.md`.
+  - Execute step: tighten claim-category mapping before rerun.
 - **Symptom:** Conflicts discovered too late.
-  - Cause: Conflict risk not flagged at routing time.
-  - Fix: Create upfront `conflict_watchlist`.
+  - Consult rule: `rules/conflict_and_uncertainty.md`.
+  - Execute step: expand upfront conflict watchlist and route coverage.
 
 ## Schema references
 - `schemas/source_record.md` — per-source metadata used during class routing and credibility checks.
