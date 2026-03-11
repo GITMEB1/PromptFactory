@@ -40,17 +40,17 @@
 - **AP-001 — Single-Class Source Overreliance**
   - Signal: Major claims rely on one source class only.
   - Detection: Compare `claim_inventory` evidence coverage before scoring.
-  - Guardrail: Enforce `rules/source_routing.md` class balancing.
+  - Guardrail: Enforce `rules/source_discipline.md` class balancing.
   - Recovery: Require at least one additional qualifying source class for decision-critical claims.
 - **AP-002 — Hidden Staleness**
   - Signal: Sources outside policy window appear without explicit caveats.
   - Detection: Check freshness metadata and disclosure text in draft.
-  - Guardrail: Apply `rules/freshness_policy.md` and `prompts/freshness_checker.md`.
+  - Guardrail: Apply freshness controls in `rules/source_discipline.md` and `prompts/freshness_checker.md`.
   - Recovery: Downgrade confidence, add staleness disclosure, and prefer newer replacements where available.
 - **AP-003 — Premature Certainty Under Conflict**
   - Signal: Draft presents a single definitive answer while source disagreement remains unresolved.
   - Detection: Cross-check conflict notes against conclusion language.
-  - Guardrail: Route via `prompts/source_conflict_resolver.md` and `rules/conflict_resolution.md`.
+  - Guardrail: Route via `prompts/source_conflict_resolver.md` and `rules/conflict_and_uncertainty.md`.
   - Recovery: Require explicit conflict disclosure, rationale, and residual uncertainty statement.
 - **AP-004 — Generic/Non-actionable Feedback**
   - Signal: Evaluator notes cannot be tied to a draft location and rule.
