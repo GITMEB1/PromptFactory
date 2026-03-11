@@ -17,10 +17,21 @@ Select mode immediately after intake:
 - **Lightweight mode** (`prompts/lightweight_mode.md`): low-risk tasks with stable facts and acceptable caveats.
 - **Deep mode** (`prompts/deep_mode.md`): medium/high-risk, freshness-sensitive, externally consequential, or conflict-prone tasks.
 
-Mode rules:
+Mode selection criteria (authoritative):
 - Apply [`operating_model.md#minimum-evidence-requirements-by-task-risk`](./operating_model.md#minimum-evidence-requirements-by-task-risk).
 - Apply [`operating_model.md#escalation-conditions`](./operating_model.md#escalation-conditions).
-- If any escalation trigger appears during execution, promote to deep mode (or human review if already deep).
+- Apply source quality/freshness constraints from [`rules/source_discipline.md`](./rules/source_discipline.md).
+- Apply claim and uncertainty constraints from [`rules/claim_safety.md`](./rules/claim_safety.md) and [`rules/conflict_and_uncertainty.md`](./rules/conflict_and_uncertainty.md).
+
+Escalation thresholds (authoritative):
+- Any triggered escalation condition in [`operating_model.md#escalation-conditions`](./operating_model.md#escalation-conditions) requires immediate promotion.
+- Evidence adequacy below risk bar (see [`operating_model.md#minimum-evidence-requirements-by-task-risk`](./operating_model.md#minimum-evidence-requirements-by-task-risk)) requires promotion.
+- Unresolved decision-critical conflict/uncertainty under [`rules/conflict_and_uncertainty.md`](./rules/conflict_and_uncertainty.md) requires promotion.
+- Promotion ladder: **Lightweight → Deep → Human review/sign-off**.
+
+Mode prompt role constraint:
+- `prompts/lightweight_mode.md` and `prompts/deep_mode.md` are execution interfaces only.
+- Policy authority remains in this file and linked rule/policy documents.
 
 ## 3) Canonical workflow stage mapping (authoritative)
 

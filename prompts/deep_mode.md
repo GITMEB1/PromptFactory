@@ -1,48 +1,25 @@
 # Prompt Module — Deep Mode
 
-## Trigger
-- Use for high-risk, high-freshness, high-visibility, or contested tasks.
-- Trigger from intake recommendation, evaluator failure, or explicit user requirement.
+## Purpose
+Execution interface for deep runs. This module defines *how* to execute in deep mode once selected or escalated by the canonical policy path.
+
+## Policy boundary
+- Mode selection and escalation authority: [`CANONICAL_EXECUTION_PATH.md`](../CANONICAL_EXECUTION_PATH.md#2-mode-selection-lightweight-vs-deep).
+- Governing policy and thresholds remain in canonical/rules documents, not this module.
 
 ## Inputs
-- **Required**
-  - `task_profile` indicating elevated assurance needs.
-  - `source_plan` with authoritative coverage.
-  - Full module artifacts (retrieval, claims, conflicts, uncertainty).
-  - Canonical policy files:
-    - `rules/source_discipline.md`
-    - `rules/claim_safety.md`
-    - `rules/conflict_and_uncertainty.md`
-    - `rules/evaluation_gates.md`
-    - `rules/proportionality.md`
-- **Optional**
-  - External review rubric or stakeholder acceptance criteria.
-  - Prior failed drafts for targeted remediation.
+- `task_profile` and mode decision/escalation from canonical intake flow.
+- Source/claim/conflict artifacts required by the active workflow stage.
+- External review or acceptance criteria when provided.
 
-## Procedure
-1. Consult rule: `rules/proportionality.md`.
-2. Execute step: confirm deep workflow is required for stated stakes.
-3. Consult rule: `rules/source_discipline.md`.
-4. Execute step: run source routing with class redundancy and freshness-aware retrieval.
-5. Consult rule: `rules/claim_safety.md`.
-6. Execute step: perform claim atomization and claim-to-source trace binding.
-7. Consult rule: `rules/conflict_and_uncertainty.md`.
-8. Execute step: resolve conflicts and document residual uncertainty.
-9. Consult rule: `rules/evaluation_gates.md`.
-10. Execute step: run evaluator/critic loops until blocking issues are resolved or explicitly deferred.
+## Execution deltas (vs lightweight mode)
+1. Run full checks across all material claims and workflow stages.
+2. Use expanded source coverage with redundancy and freshness-aware retrieval.
+3. Perform full claim-to-source traceability and uncertainty/conflict resolution.
+4. Execute evaluator/critic remediation loops to closure or explicit deferral.
+5. If canonical escalation requires it, hand off to human review/sign-off.
 
 ## Outputs
 - `deep_execution_record` spanning all module artifacts.
 - `high_assurance_claim_inventory` with full traceability.
 - `review_ready_response` plus unresolved-risk disclosures.
-
-## Failure patterns
-- **Symptom:** Deep workflow produces volume without decision clarity.
-  - Consult rule: `rules/proportionality.md`.
-  - Execute step: add stage-level synthesis checkpoints.
-- **Symptom:** Revision loops do not converge.
-  - Consult rule: `rules/evaluation_gates.md`.
-  - Execute step: enforce explicit closure criteria from blocking issues.
-- **Symptom:** High assurance claimed with weak provenance.
-  - Consult rule: `rules/claim_safety.md`.
-  - Execute step: run trace audit and block finalization until fixed.
