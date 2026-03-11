@@ -1,5 +1,7 @@
 # Design Principles
 
+> **Doctrine only:** this document defines enduring principles. It does not define change controls or contribution workflow mechanics.
+
 ## 1. Evidence over eloquence
 Good phrasing cannot substitute for support quality.
 
@@ -20,3 +22,7 @@ High-stakes ambiguity and unresolved conflicts require human review.
 
 ## 7. Reproducibility and traceability
 Workflow artifacts should allow replay, audit, and post-run improvement.
+
+## Canonical links
+- Behavioral gates and review/escalation requirements: [`CHANGE_POLICY.md`](CHANGE_POLICY.md)
+- Contributor workflow and PR mechanics: [`CONTRIBUTING.md`](CONTRIBUTING.md)

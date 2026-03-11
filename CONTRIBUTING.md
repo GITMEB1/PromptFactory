@@ -1,25 +1,33 @@
 # Contributing
 
-## Contribution goals
+> **Contributor mechanics only:** this document covers how to contribute (branching, review checklist, commit expectations). It does not redefine doctrine or behavioral gate policy.
 
-Contributions should improve reliability, clarity, and operator usability.
+## Branching
 
-## Workflow
+- Create a focused branch per change set (for example: `docs/<topic>` or `chore/<topic>`).
+- Keep each branch scoped to one reviewable objective.
+- Rebase or merge `main` before opening a PR to minimize drift.
 
-1. Update or add docs/prompts/rules in small, reviewable changes.
-2. Preserve canonical workflow semantics unless explicitly proposing a model change.
-3. Cross-link related docs when introducing new concepts.
-4. Record meaningful behavior changes in tracking logs.
+## Pull request mechanics
 
-## Quality expectations
+1. Keep changes small and reviewable.
+2. Summarize scope and intent clearly in the PR description.
+3. Note changed files and why they were touched.
+4. Call out potential follow-ups explicitly.
 
-- Keep terminology consistent with `GLOSSARY.md`.
-- Document risk and evidence implications for prompt/rule changes.
-- Avoid silent policy regressions.
+## Commit expectations
 
-## Pull request checklist
+- Use clear, imperative commit subjects.
+- Keep commits logically grouped; avoid unrelated edits in the same commit.
+- Reference impacted docs/rules in the commit body when helpful.
 
-- [ ] Change is scoped and explained
-- [ ] Affected docs are cross-linked
-- [ ] Any operating-model impact is stated
-- [ ] Tracking notes updated (if behavior changed)
+## Review checklist
+
+- [ ] Change is scoped and explained.
+- [ ] Any required review/escalation was applied per `CHANGE_POLICY.md`.
+- [ ] Canonical docs are linked instead of duplicating policy/doctrine text.
+- [ ] Top-level index docs were updated when required.
+
+## Canonical links
+- Doctrine and non-negotiable principles: [`DESIGN_PRINCIPLES.md`](DESIGN_PRINCIPLES.md)
+- Behavioral gates and escalation requirements: [`CHANGE_POLICY.md`](CHANGE_POLICY.md)
