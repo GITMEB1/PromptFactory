@@ -17,7 +17,7 @@ Index of complete scenario walkthroughs that demonstrate intake → routing → 
 ## Edge-Case Exemplars
 - [`examples/edge_cases/example.md`](../examples/edge_cases/example.md)
   - Covers conflicting, mixed-freshness sources and conditional recommendations.
-  - Key modules: `prompts/source_conflict_resolver.md`, `prompts/freshness_checker.md`, `prompts/final_answer_formatter.md`.
+  - Key modules: `prompts/source_conflict_resolver.md`, `prompts/freshness_checker.md`, `prompts/final_response_builder.md`.
   - Key rules: `rules/conflict_resolution.md`, `rules/freshness_policy.md`, `rules/proportionality_policy.md`.
 
 ## How to Use This Index
