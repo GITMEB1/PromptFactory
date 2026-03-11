@@ -4,6 +4,22 @@
 
 Prompt Factory v2 treats prompting as a **workflow and knowledge-governance problem**, not just a wording problem.
 
+## Concept boundaries (canonical definitions)
+
+These definitions set scope boundaries for the full system. Use these terms consistently across docs, prompts, and logs.
+
+| Concept | Definition | In scope | Out of scope / non-goals |
+|---|---|---|---|
+| **Prompt engineering** | Designing module instructions so model behavior is predictable and auditable. | Prompt interfaces, procedure steps, outputs, quality checks. | Treating wording tweaks as a replacement for sourcing, provenance, or evaluation controls. |
+| **Context engineering** | Structuring task constraints, source artifacts, and workflow state so the model receives the right information at the right step. | Task intel, source bundles, claim inventory, response plans, mode/risk controls. | Blindly expanding context window without relevance or provenance discipline. |
+| **Source routing** | Assigning each material claim to required source classes based on risk, freshness, and authority needs. | Routing policies, source-class selection rationale, escalation to retrieval. | Convenience-first sourcing for high-risk claims. |
+| **Retrieval** | Acquiring evidence from external or indexed systems to satisfy routed source requirements, especially freshness-sensitive claims. | Retrieval plans, timestamped evidence capture, reruns when stale. | Assuming retrieved snippets are trustworthy without credibility/provenance checks. |
+| **Grounding** | Binding output claims to explicit, traceable evidence and clear uncertainty language when evidence is incomplete. | Claim-to-source linkage, caveats, conflict visibility. | Unsupported factual assertions and implicit confidence inflation. |
+| **Claim control** | Managing the lifecycle of material claims: include, revise, defer, or exclude based on support quality. | Claim inventory, approval/exclusion decisions, change tracking. | Freeform drafting that introduces unmapped claims. |
+| **Composition** | Assembling approved claims into a user-facing response that preserves intent, structure, and uncertainty disclosures. | Section planning, claim rebinding, final formatting. | Adding new factual content not cleared by claim control. |
+| **Evaluation** | Systematic post-draft assessment of factual and quality dimensions, with release gates and remediation. | Pass/warn/fail scoring, policy checks, confidence scoring, iteration triggers. | Style-only review that ignores grounding/freshness failures. |
+| **Lessons** | Capturing reusable outcomes from runs to improve future routing, prompting, and review decisions. | Lesson logs, failure patterns, exemplars, review notes. | One-off retrospective notes that are not linked to operational artifacts. |
+
 ## Lifecycle stages
 
 1. **Intake**
@@ -14,7 +30,7 @@ Prompt Factory v2 treats prompting as a **workflow and knowledge-governance prob
    - Define acceptable uncertainty and response boundaries
 3. **Sourcing**
    - Route required claims to source classes
-   - Gather evidence from official, practitioner, private context, retrieval, or bounded prior
+   - Gather evidence from official, practitioner, private context, retrieval, or bounded model prior
 4. **Synthesis**
    - Build claim inventory and response plan
    - Track confidence and unresolved gaps
@@ -23,8 +39,8 @@ Prompt Factory v2 treats prompting as a **workflow and knowledge-governance prob
    - Ensure minimum evidence requirements are met
 6. **Delivery**
    - Produce final response with caveats and references
-7. **Post-run learning**
-   - Log outcome, conflicts, and improvements in `tracking/*`
+7. **Lessons**
+   - Log outcomes, conflicts, and improvements in `tracking/*`
 
 ## Decision gates
 
@@ -84,12 +100,28 @@ Escalate from lightweight to deep mode, or from deep mode to human review, when 
 - For unstable facts: **Official + Live Retrieval** outrank everything else.
 - For user/project-local truth: **Private primary context** may outrank outside inference.
 - For workflow/process advice: **Practitioner sources** may outperform official docs.
-- For current uncertainty: do not rely on model memory alone.
+- For current uncertainty: do not rely on model prior alone.
 - If sources conflict: show the conflict instead of smoothing it over.
 
 ## Canonical execution chain
 
-**Task Intake → Freshness Check → Source Routing → Retrieval / Reading → Credibility Grading → Claim Inventory → Response Plan → Composition → Lint / Eval → Lessons**
+**Task Intake → Freshness Check → Source Routing → Retrieval / Reading → Credibility Grading → Claim Control (Claim Inventory) → Response Plan → Composition → Evaluation (Lint / Eval) → Lessons**
+
+## Concept traceability matrix
+
+This table maps each canonical concept to operational artifacts in required directories.
+
+| Concept | `rules/` | `prompts/` | `sources/` | `tracking/` | `.agent/workflows/` |
+|---|---|---|---|---|---|
+| Prompt engineering | `rules/composition_lock.md`; `rules/revision_policy.md` | `prompts/module_interface_standard.md`; `prompts/composer.md` | `sources/source_bundle_template.md` | `tracking/review_log.md` | `.agent/workflows/writing_workflow.md` |
+| Context engineering | `rules/provenance_policy.md`; `rules/note_hygiene_policy.md` | `prompts/task_intake.md`; `prompts/claim_builder.md` | `sources/provenance_model.md`; `sources/private_context/source_index.md` | `tracking/tasks.yaml.md`; `tracking/runs.yaml.md` | `.agent/workflows/default_workflow.md` |
+| Source routing | `rules/source_routing.md`; `rules/practitioner_source_policy.md` | `prompts/source_router.md`; `prompts/freshness_checker.md` | `sources/source_selection_matrix.md`; `sources/official/source_index.md` | `tracking/source_conflicts.yaml.md` | `.agent/workflows/research_workflow.md` |
+| Retrieval | `rules/freshness_policy.md`; `rules/credibility_policy.md` | `prompts/retrieval_reader.md`; `prompts/source_conflict_resolver.md` | `sources/retrieval/source_index.md`; `sources/freshness_risk_matrix.md` | `tracking/runs.yaml.md` | `.agent/workflows/research_workflow.md` |
+| Grounding | `rules/provenance_policy.md`; `rules/uncertainty_policy.md` | `prompts/claim_builder.md`; `prompts/uncertainty_writer.md` | `sources/provenance_model.md`; `sources/model_prior/usage_policy.md` | `tracking/eval_log.yaml.md` | `.agent/workflows/review_workflow.md` |
+| Claim control | `rules/composition_lock.md`; `rules/revision_policy.md` | `prompts/claim_builder.md`; `prompts/response_assembler.md` | `sources/source_bundle_template.md` | `tracking/failure_patterns.md`; `tracking/review_log.md` | `.agent/workflows/analysis_workflow.md` |
+| Composition | `rules/composition_lock.md`; `rules/proportionality_policy.md` | `prompts/composer.md`; `prompts/final_answer_formatter.md` | `sources/source_bundle_template.md` | `tracking/exemplar_index.md` | `.agent/workflows/writing_workflow.md` |
+| Evaluation | `rules/eval_policy.md`; `rules/policy_lint.yaml.md` | `prompts/evaluator.md`; `prompts/critic.md` | `sources/practitioner_credibility_criteria.md` | `tracking/eval_log.yaml.md`; `tracking/review_log.md` | `.agent/workflows/eval_iteration_workflow.md` |
+| Lessons | `rules/revision_policy.md` | `prompts/critic.md` | `sources/source_selection_matrix.md` | `tracking/lesson_log.md`; `tracking/failure_patterns.md` | `.agent/workflows/eval_iteration_workflow.md` |
 
 ## Workflow artifact schemas
 
@@ -98,4 +130,4 @@ Escalate from lightweight to deep mode, or from deep mode to human review, when 
 - Synthesis: `schemas/claim_inventory.md`, `schemas/response_plan.md`
 - Verification: `schemas/eval_record.md`, `schemas/approval_manifest.md`, `schemas/source_conflict_record.md`
 - Revision control: `schemas/delta_record.md`
-- Post-run learning: `schemas/lesson_record.md`
+- Lessons: `schemas/lesson_record.md`

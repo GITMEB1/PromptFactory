@@ -49,4 +49,4 @@
 
 ## Schema references
 - `schemas/delta_record.md` — revision-delta tracking for regression-aware critique loops.
-- `schemas/lesson_record.md` — post-run learning capture after critique resolution.
+- `schemas/lesson_record.md` — lessons capture after critique resolution.

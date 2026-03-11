@@ -63,7 +63,7 @@ Prompt Factory routes information through five classes:
 2. **Practitioner** — implementation guidance, field reports, case studies
 3. **Private Context** — user-provided and project-local truth
 4. **Live Retrieval** — recency-sensitive web or API evidence
-5. **Model Prior** — model memory, used only when bounded and disclosed
+5. **Model Prior** — model prior knowledge, used only when bounded and disclosed
 
 Routing and precedence details live in [`rules/source_routing.md`](./rules/source_routing.md) and [`operating_model.md`](./operating_model.md).
 
