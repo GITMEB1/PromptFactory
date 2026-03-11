@@ -4,21 +4,74 @@
 
 Prompt Factory v2 treats prompting as a **workflow and knowledge-governance problem**, not just a wording problem.
 
-## Concept boundaries (canonical definitions)
+## Canonical concept definition source
 
-These definitions set scope boundaries for the full system. Use these terms consistently across docs, prompts, and logs.
+`operating_model.md` is the **sole canonical source** for concept definitions used across this repository. Other docs should reference these section anchors instead of restating definitions.
 
-| Concept | Definition | In scope | Out of scope / non-goals |
-|---|---|---|---|
-| **Prompt engineering** | Designing module instructions so model behavior is predictable and auditable. | Prompt interfaces, procedure steps, outputs, quality checks. | Treating wording tweaks as a replacement for sourcing, provenance, or evaluation controls. |
-| **Context engineering** | Structuring task constraints, source artifacts, and workflow state so the model receives the right information at the right step. | Task intel, source bundles, claim inventory, response plans, mode/risk controls. | Blindly expanding context window without relevance or provenance discipline. |
-| **Source routing** | Assigning each material claim to required source classes based on risk, freshness, and authority needs. | Routing policies, source-class selection rationale, escalation to retrieval. | Convenience-first sourcing for high-risk claims. |
-| **Retrieval** | Acquiring evidence from external or indexed systems to satisfy routed source requirements, especially freshness-sensitive claims. | Retrieval plans, timestamped evidence capture, reruns when stale. | Assuming retrieved snippets are trustworthy without credibility/provenance checks. |
-| **Grounding** | Binding output claims to explicit, traceable evidence and clear uncertainty language when evidence is incomplete. | Claim-to-source linkage, caveats, conflict visibility. | Unsupported factual assertions and implicit confidence inflation. |
-| **Claim control** | Managing the lifecycle of material claims: include, revise, defer, or exclude based on support quality. | Claim inventory, approval/exclusion decisions, change tracking. | Freeform drafting that introduces unmapped claims. |
-| **Composition** | Assembling approved claims into a user-facing response that preserves intent, structure, and uncertainty disclosures. | Section planning, claim rebinding, final formatting. | Adding new factual content not cleared by claim control. |
-| **Evaluation** | Systematic post-draft assessment of factual and quality dimensions, with release gates and remediation. | Pass/warn/fail scoring, policy checks, confidence scoring, iteration triggers. | Style-only review that ignores grounding/freshness failures. |
-| **Lessons** | Capturing reusable outcomes from runs to improve future routing, prompting, and review decisions. | Lesson logs, failure patterns, exemplars, review notes. | One-off retrospective notes that are not linked to operational artifacts. |
+## Canonical concept definitions
+
+### Prompt engineering
+
+Designing module instructions so model behavior is predictable and auditable.
+
+**In scope:** Prompt interfaces, procedure steps, outputs, quality checks.
+**Out of scope / non-goals:** Treating wording tweaks as a replacement for sourcing, provenance, or evaluation controls.
+
+### Context engineering
+
+Structuring task constraints, source artifacts, and workflow state so the model receives the right information at the right step.
+
+**In scope:** Task intel, source bundles, claim inventory, response plans, mode/risk controls.
+**Out of scope / non-goals:** Blindly expanding context window without relevance or provenance discipline.
+
+### Source routing
+
+Assigning each material claim to required source classes based on risk, freshness, and authority needs.
+
+**In scope:** Routing policies, source-class selection rationale, escalation to retrieval.
+**Out of scope / non-goals:** Convenience-first sourcing for high-risk claims.
+
+### Retrieval
+
+Acquiring evidence from external or indexed systems to satisfy routed source requirements, especially freshness-sensitive claims.
+
+**In scope:** Retrieval plans, timestamped evidence capture, reruns when stale.
+**Out of scope / non-goals:** Assuming retrieved snippets are trustworthy without credibility/provenance checks.
+
+### Grounding
+
+Binding output claims to explicit, traceable evidence and clear uncertainty language when evidence is incomplete.
+
+**In scope:** Claim-to-source linkage, caveats, conflict visibility.
+**Out of scope / non-goals:** Unsupported factual assertions and implicit confidence inflation.
+
+### Claim control
+
+Managing the lifecycle of material claims: include, revise, defer, or exclude based on support quality.
+
+**In scope:** Claim inventory, approval/exclusion decisions, change tracking.
+**Out of scope / non-goals:** Freeform drafting that introduces unmapped claims.
+
+### Composition
+
+Assembling approved claims into a user-facing response that preserves intent, structure, and uncertainty disclosures.
+
+**In scope:** Section planning, claim rebinding, final formatting.
+**Out of scope / non-goals:** Adding new factual content not cleared by claim control.
+
+### Evaluation
+
+Systematic post-draft assessment of factual and quality dimensions, with release gates and remediation.
+
+**In scope:** Pass/warn/fail scoring, policy checks, confidence scoring, iteration triggers.
+**Out of scope / non-goals:** Style-only review that ignores grounding/freshness failures.
+
+### Lessons
+
+Capturing reusable outcomes from runs to improve future routing, prompting, and review decisions.
+
+**In scope:** Lesson logs, failure patterns, exemplars, review notes.
+**Out of scope / non-goals:** One-off retrospective notes that are not linked to operational artifacts.
 
 ## Lifecycle stages
 
