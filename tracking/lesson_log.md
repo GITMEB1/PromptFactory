@@ -2,25 +2,27 @@
 
 Capture reusable lessons learned from completed runs.
 
+**Schema alignment:** each entry uses exact key names from `schemas/lesson_record.md`.
+
 ## Entry Template
 
-- **Lesson ID:** LES-YYYYMMDD-001
-- **Observed In:** `R-YYYYMMDD-001`
-- **Category:** Intake / Routing / Claims / Composition / Eval
-- **What Happened:**
-  - Brief context and failure/success trigger.
-- **Why It Happened:**
-  - Root cause and contributing factors.
-- **Actionable Rule:**
-  - Concrete instruction future runs can apply.
-- **Applies When:**
-  - Task types, source classes, or risk profile.
-- **Related Policies/Modules:**
-  - `rules/freshness_policy.md`
-  - `prompts/source_router.md`
-- **Example References:**
-  - `examples/good/example.md`
-  - `examples/bad/example.md`
+```yaml
+lesson_record:
+  lesson_id: "L-YYYYMMDD-01"
+  task_id: "T-YYYYMMDD-001"
+  run_id: "R-YYYYMMDD-001"
+  what_worked:
+    - "Practice or decision that improved quality"
+  what_failed:
+    - "Failure to avoid next run"
+  root_causes:
+    - "Why the failure happened"
+  reusable_patterns:
+    - "Rule to reuse in future runs"
+  prompt_or_policy_updates:
+    - "prompts/evaluator.md: add anti-pattern check"
+  owner: "agent-or-human"
+```
 
 ## Quick Tag Legend
 

@@ -2,30 +2,23 @@
 
 Use this template when sources disagree materially.
 
+**Schema alignment:** each entry nests `source_conflict_record` and uses exact key names from `schemas/source_conflict_record.md`.
+
 ```yaml
 source_conflicts:
-  - conflict_id: SC-YYYYMMDD-001
-    run_id: R-YYYYMMDD-001
-    claim: "Feature X is generally available"
-    conflicting_sources:
-      - id: src-official-1
-        class: official
-        citation: "Vendor changelog (2026-01-10)"
-        stance: supports
-      - id: src-practitioner-2
-        class: practitioner
-        citation: "Engineer blog (2025-12-01)"
-        stance: contradicts
-    conflict_type: recency|scope|terminology|factual
-    freshness_snapshot:
-      newest_source_age_days: 4
-      oldest_source_age_days: 44
-      policy_window_days: 30
-    resolution_strategy:
-      applied_rule: rules/conflict_resolution.md
-      decision: "Prefer newer official source; keep practitioner as caveat"
-    impact_on_output:
-      confidence_adjustment: "medium -> medium-high"
-      required_disclosure: true
-      disclosure_text: "Community reports may reflect pre-GA behavior"
+  - source_conflict_record:
+      conflict_id: "X-001"
+      task_id: "T-YYYYMMDD-001"
+      claim_ids:
+        - "C-004"
+      competing_sources:
+        - source_id: "src-official-1"
+          position_summary: "Feature X is generally available in all regions"
+        - source_id: "src-practitioner-2"
+          position_summary: "Feature X has reliability limits in region B"
+      severity: low|medium|high
+      resolution_status: resolved|split_outcome|unresolved
+      rationale: "Prefer newer official source and preserve practitioner caveat"
+      winning_or_split_outcome: "GA overall, with explicit region-B caveat"
+      residual_uncertainty: "region-B performance variability"
 ```

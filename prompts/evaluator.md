@@ -36,16 +36,37 @@
 - Scoring dimensions are completed, not partial.
 - Policy violations are tied to named rules.
 
-## Failure patterns
-- **Symptom:** Generic feedback that cannot be acted on.
-  - Cause: Missing location- and rule-level references.
-  - Fix: Re-run with structured fix list fields.
-- **Symptom:** Severe issues labeled as minor edits.
-  - Cause: No severity calibration.
-  - Fix: Apply blocking/non-blocking threshold.
-- **Symptom:** Repeated regressions across revisions.
-  - Cause: Prior evaluator output not compared.
-  - Fix: Add regression checkpoint against previous report.
+## Recurring anti-pattern checks (release-gate required)
+- **AP-001 — Single-Class Source Overreliance**
+  - Signal: Major claims rely on one source class only.
+  - Detection: Compare `claim_inventory` evidence coverage before scoring.
+  - Guardrail: Enforce `rules/source_routing.md` class balancing.
+  - Recovery: Require at least one additional qualifying source class for decision-critical claims.
+- **AP-002 — Hidden Staleness**
+  - Signal: Sources outside policy window appear without explicit caveats.
+  - Detection: Check freshness metadata and disclosure text in draft.
+  - Guardrail: Apply `rules/freshness_policy.md` and `prompts/freshness_checker.md`.
+  - Recovery: Downgrade confidence, add staleness disclosure, and prefer newer replacements where available.
+- **AP-003 — Premature Certainty Under Conflict**
+  - Signal: Draft presents a single definitive answer while source disagreement remains unresolved.
+  - Detection: Cross-check conflict notes against conclusion language.
+  - Guardrail: Route via `prompts/source_conflict_resolver.md` and `rules/conflict_resolution.md`.
+  - Recovery: Require explicit conflict disclosure, rationale, and residual uncertainty statement.
+- **AP-004 — Generic/Non-actionable Feedback**
+  - Signal: Evaluator notes cannot be tied to a draft location and rule.
+  - Detection: Review `blocking_issues` and `non_blocking_improvements` for traceability.
+  - Guardrail: Every issue must include location + violated rule/policy.
+  - Recovery: Re-run with structured fix list entries.
+- **AP-005 — Severity Miscalibration**
+  - Signal: Critical policy violations labeled as non-blocking edits.
+  - Detection: Compare issue severity to release risk and policy class.
+  - Guardrail: Apply blocking/non-blocking thresholds consistently.
+  - Recovery: Reclassify issue severity before final verdict.
+- **AP-006 — Regression Blindness**
+  - Signal: Same defects recur across revisions without explicit comparison.
+  - Detection: Diff current evaluator output against prior report when available.
+  - Guardrail: Include a regression checkpoint in evaluation procedure.
+  - Recovery: Add a targeted regression fix list before pass recommendation.
 
 ## Schema references
 - `schemas/eval_record.md` — structured evaluation output and issue tracking.

@@ -11,3 +11,10 @@ Prompt Factory v2 is a documentation-first operating system for producing reliab
 - [`operating_model.md`](./operating_model.md)
 - [`QUICKSTART.md`](./QUICKSTART.md)
 - [`REPO_MAP.md`](./REPO_MAP.md)
+
+
+## Example walkthroughs
+
+- [Good exemplar](./examples/good/example.md)
+- [Bad exemplar](./examples/bad/example.md)
+- [Edge-case exemplar](./examples/edge_cases/example.md)
