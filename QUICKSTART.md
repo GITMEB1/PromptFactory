@@ -11,14 +11,12 @@ Read in order:
 
 1. Create a task ID (`T-YYYYMMDD-<slug>`).
 2. Classify risk (`low|medium|high`) and freshness (`stable|moderate|high`).
-3. Select mode:
-   - **Lightweight** for low-stakes + low-freshness tasks.
-   - **Deep** for high-stakes and/or high-freshness tasks.
+3. Select mode using [`operating_model.md#minimum-evidence-requirements-by-task-risk`](./operating_model.md#minimum-evidence-requirements-by-task-risk) and [`operating_model.md#escalation-conditions`](./operating_model.md#escalation-conditions).
 4. Define success criteria before sourcing.
 
 ## 3) Execute the canonical chain
 
-**Task Intake → Freshness Check → Source Routing → Retrieval / Reading → Credibility Grading → Claim Inventory → Response Plan → Composition → Lint / Eval → Lessons**
+Use [`operating_model.md#canonical-execution-chain`](./operating_model.md#canonical-execution-chain) as the source of truth for stage order and naming.
 
 Use prompt templates in `prompts/`, policy constraints in `rules/`, and schema templates in `schemas/`.
 
@@ -34,10 +32,9 @@ Record task/run/conflict outcomes in `tracking/`.
 - [Bad exemplar](./examples/bad/example.md)
 - [Edge-case exemplar](./examples/edge_cases/example.md)
 
-
 ### Lightweight example (low-stakes, low-freshness)
 
-Use for internal drafts, low-impact summaries, and stable topics.
+Use for internal drafts, low-impact summaries, and stable topics. See [`operating_model.md#minimum-evidence-requirements-by-task-risk`](./operating_model.md#minimum-evidence-requirements-by-task-risk) for the governing evidence bar.
 
 #### Example intake (`schemas/task_intel.md`)
 
@@ -75,7 +72,7 @@ source_bundle:
 
 ### Deep example (high-stakes, high-freshness)
 
-Use for externally visible decisions, compliance/safety/legal/financial outputs, or rapidly changing facts.
+Use for externally visible decisions, compliance/safety/legal/financial outputs, or rapidly changing facts. See [`operating_model.md#escalation-conditions`](./operating_model.md#escalation-conditions) and [`operating_model.md#minimum-evidence-requirements-by-task-risk`](./operating_model.md#minimum-evidence-requirements-by-task-risk).
 
 #### Example intake (`schemas/task_intel.md`)
 

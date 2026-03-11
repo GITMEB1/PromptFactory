@@ -2,11 +2,18 @@
 
 ## Common workflow core
 
-All interfaces use the same operating loop:
-1. Create `task_intel` from `task.md`.
-2. Run the canonical chain (intake → freshness → routing → sourcing → claims → plan → composition → eval).
-3. Produce schema-compatible artifacts from `schemas/`.
-4. Log outcomes in `tracking/`.
+All interfaces use the same operating loop defined in [`operating_model.md#canonical-execution-chain`](./operating_model.md#canonical-execution-chain).
+
+Required concept definitions for cross-interface consistency:
+- [Prompt engineering](./operating_model.md#prompt-engineering)
+- [Context engineering](./operating_model.md#context-engineering)
+- [Source routing](./operating_model.md#source-routing)
+- [Retrieval](./operating_model.md#retrieval)
+- [Grounding](./operating_model.md#grounding)
+- [Claim control](./operating_model.md#claim-control)
+- [Composition](./operating_model.md#composition)
+- [Evaluation](./operating_model.md#evaluation)
+- [Lessons](./operating_model.md#lessons)
 
 ## Codex (repo-aware)
 
