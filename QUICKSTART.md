@@ -28,6 +28,13 @@ Record task/run/conflict outcomes in `tracking/`.
 
 ## 5) First run examples
 
+### Full exemplar walkthroughs
+
+- [Good exemplar](./examples/good/example.md)
+- [Bad exemplar](./examples/bad/example.md)
+- [Edge-case exemplar](./examples/edge_cases/example.md)
+
+
 ### Lightweight example (low-stakes, low-freshness)
 
 Use for internal drafts, low-impact summaries, and stable topics.
