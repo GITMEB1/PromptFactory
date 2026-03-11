@@ -1,5 +1,7 @@
 # Change Policy
 
+> **Behavioral gate policy only:** this document defines what changes require review or escalation. It does not restate doctrine or contributor workflow mechanics.
+
 ## Change classes
 
 ### Patch changes
@@ -31,3 +33,7 @@ Require elevated review when a change touches:
 ## Backward compatibility intent
 
 Prefer additive changes. If behavioral breaking changes are necessary, mark them clearly as major and provide migration guidance in the PR description.
+
+## Canonical links
+- Enduring doctrine and rationale: [`DESIGN_PRINCIPLES.md`](DESIGN_PRINCIPLES.md)
+- Contributor branching/checklist/commit mechanics: [`CONTRIBUTING.md`](CONTRIBUTING.md)
