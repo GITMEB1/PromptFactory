@@ -25,5 +25,10 @@ Use when two or more sources materially disagree and the task requires a defensi
 - Conflict is irreducible within time or access constraints.
 - Resolution would exceed acceptable risk tolerance.
 
-## Handoff
-Provide resolved/unresolved status, rationale trail, and instructions for cautious downstream use.
+## Handoff contract
+Before returning to `default_workflow.md`, provide:
+1. **Conflict register:** each disputed claim pair/group with citations.
+2. **Resolution decision:** accepted claim, rejected claim, or ambiguity preserved.
+3. **Rationale chain:** authority/freshness/scope reasoning used.
+4. **Downstream constraints:** mandatory caveats and disallowed assertions.
+5. **Escalation trigger:** condition that should reopen this workflow.

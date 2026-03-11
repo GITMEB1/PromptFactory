@@ -25,5 +25,10 @@ Use when improving prompts, policies, or outputs through repeated evaluation cyc
 - Changes are not isolated, preventing attribution.
 - Iteration budget exhausted before threshold is met.
 
-## Handoff
-Share current best state, supporting evaluation data, and prioritized next experiments.
+## Handoff contract
+Before returning to `default_workflow.md`, include:
+1. **Baseline record:** starting metrics and artifact version.
+2. **Iteration table:** change, metric deltas, and decision per run.
+3. **Current best state:** exact configuration to keep.
+4. **Residual gaps:** unmet thresholds and suspected causes.
+5. **Next experiments:** prioritized list with expected signal.
