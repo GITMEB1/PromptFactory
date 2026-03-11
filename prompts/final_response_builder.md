@@ -33,7 +33,8 @@
 2. Normalize terminology, units, and naming consistency.
 3. Verify unresolved uncertainty/conflict disclosures are present at decision-relevant points.
 4. Confirm no evaluator blocking issue remains unresolved.
-5. Emit final answer artifact plus checklist.
+5. Verify artifact accounting consistency: declared artifact format/files match produced format/files (consolidated vs separate).
+6. Emit final answer artifact plus checklist.
 
 ## Outputs
 - `final_answer` (delivery-ready text).

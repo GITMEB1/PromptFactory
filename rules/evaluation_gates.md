@@ -45,9 +45,32 @@ Release is blocked when any condition is true:
 - [ ] Overall confidence marked high while any critical dimension is `warn/fail`.
 - [ ] Known unresolved high-severity conflict without explicit conditional recommendation.
 
-## D) Sign-off checklist
+## E) Sign-off checklist
 
 - [ ] Dimension ratings recorded with brief rationale.
 - [ ] Remediation action logged for each `warn/fail`.
 - [ ] Final confidence aligns with dimension outcomes.
 - [ ] Recurrent warning patterns captured for process improvement.
+
+
+## D) Deep-mode evidence integrity gates
+
+For deep-mode factual validation runs, these checks are mandatory and release-blocking.
+
+### D1) Required source-class satisfaction (hard fail)
+Fail when any class listed in `task_intel.source_constraints.required_classes` is not explicitly present in `source_bundle.class_coverage.satisfied`.
+
+Additional hard checks:
+- If `official` is required, fail unless at least one `source_record` has `class: official` with exact `title`, `source_type`, and `reference`.
+- If `retrieval` is required, fail unless at least one `source_record` has `class: retrieval` and explicit retrieval metadata (`retrieved_at`, retrieval method/context, and exact reference).
+
+### D2) Provenance precision (hard fail)
+Fail when deep-mode factual claims rely on vague provenance labels (for example "Various docs", "OpenAI Documentation", "internet sources") instead of exact source-level entries.
+
+### D3) Artifact accounting consistency (hard fail)
+Fail when output artifacts are misreported (for example, run reports separate artifacts while only a consolidated file exists, or vice versa).
+
+### D4) Pass-status ceiling under evidence gaps
+- `pass` is forbidden when any D1–D3 issue exists.
+- If evidence gaps are unresolved, `pass_status` must be `fail`.
+- `conditional_pass` is allowed only when all required classes are satisfied and provenance is exact, with remaining issues non-blocking.

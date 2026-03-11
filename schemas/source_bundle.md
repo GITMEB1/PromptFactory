@@ -13,9 +13,18 @@ source_bundle:
   class_coverage:
     required: []
     satisfied: []
+    missing: []
   claim_links:
     - claim_id: ""
       source_ids: []
+      support_type: direct_evidence|inferential_synthesis|contextual_constraint
+  provenance_quality: exact|mixed|vague
+  artifacts_declared:
+    format: consolidated|separate
+    files: []
+  artifacts_produced:
+    format: consolidated|separate
+    files: []
   conflicts: []
   notes: ""
 ```
@@ -31,9 +40,18 @@ source_bundle:
   class_coverage:
     required: ["private_context"]
     satisfied: ["private_context"]
+    missing: []
   claim_links:
     - claim_id: "C-001"
       source_ids: ["S-private-01"]
+      support_type: contextual_constraint
+  provenance_quality: exact
+  artifacts_declared:
+    format: consolidated
+    files: ["artifacts/run_report.md"]
+  artifacts_produced:
+    format: consolidated
+    files: ["artifacts/run_report.md"]
   conflicts: []
   notes: "Repository-local docs were sufficient; no external retrieval used."
 ```

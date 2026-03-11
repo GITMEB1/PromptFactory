@@ -16,6 +16,12 @@ evaluations:
         calibration: 1-5
         usability: 1-5
       pass_status: pass|conditional_pass|fail
+      evidence_integrity:
+        required_source_classes: []
+        satisfied_source_classes: []
+        missing_source_classes: []
+        provenance_quality: exact|mixed|vague
+        artifact_accounting_consistent: true|false
       blocking_issues:
         - "Blocking issue text"
       non_blocking_improvements:

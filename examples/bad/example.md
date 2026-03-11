@@ -8,7 +8,8 @@
 - **Mode selected:** Lightweight (incorrect for risk level).
 - **Source classes used:**
   - **Practitioner only:** Community forum and two blog posts.
-  - **Official:** Not consulted.
+  - **Official:** Declared as required but not explicitly satisfied by any named source.
+  - **Retrieval:** Declared as required but missing explicit retrieval record.
   - **Private context:** Not consulted.
   - **Model prior:** Filled gaps in policy language.
 - **Freshness handling failure:**
@@ -32,7 +33,8 @@
 - **Source quality mix:** 1/5
 - **Freshness handling:** 1/5
 - **Uncertainty calibration:** 1/5
-- **Overall:** Revise (critical)
+- **Evidence integrity:** fail (required classes missing, provenance marked vague as "Various/OpenAI Documentation", artifact report claimed separate files but only a consolidated note existed)
+- **Overall:** Fail (critical blocking evidence gaps)
 
 ## Corrective Path
 1. Re-route through official compliance bulletin and current regulator guidance.
