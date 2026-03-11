@@ -10,7 +10,7 @@ Prompt Factory treats prompting as a **workflow and knowledge-governance problem
 
 ## Canonical execution mapping source
 
-For stage-level execution mapping (rules, prompts, and artifacts), use [`CANONICAL_EXECUTION_PATH.md`](./CANONICAL_EXECUTION_PATH.md) as the single source of truth.
+For all procedural stage execution (order, mapped rules, prompt modules, schema outputs, and stop gates), use [`CANONICAL_EXECUTION_PATH.md`](./CANONICAL_EXECUTION_PATH.md) as the single operational source of truth. This file intentionally focuses on concepts and policy anchors.
 
 ## Canonical concept definitions
 
